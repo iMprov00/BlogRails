@@ -1,7 +1,11 @@
 <h1>Контакты</h1>
 
 <%= form_for :contact, url: contacts_path do |f| %>
-
+	<% if @contact %>
+	<p>
+		<%= @contact.errors.full_messages %>
+	</p>
+	<% end %>
 	<p>
 		<label>Почта (Email)</label>
 		<br/>
