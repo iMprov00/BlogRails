@@ -9,6 +9,7 @@ class ArticlesController < ApplicationController
 
     if @article.valid?
       @article.save
+      redirect_to @article #автоматически редиректит на URL с id которое только что было добавленно "http://127.0.0.1:3000/articles/4"
     else
       render action: 'new'
     end
