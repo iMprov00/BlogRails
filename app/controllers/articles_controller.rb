@@ -1,7 +1,17 @@
 class ArticlesController < ApplicationController
 
+  def update
+    @article = Article.find(params[:id])
+
+    if @article.update(article_params)
+      redirect_to @article #автоматически редиректит на URL с id которое только что было добавленно "http://127.0.0.1:3000/articles/4"
+    else
+      render action: 'edit'
+    end
+  end
+
   def edit
-    
+    @article = Article.find(params[:id])
   end
 
   def index
