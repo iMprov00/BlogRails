@@ -6,7 +6,7 @@
 	<p>
 		<%= link_to "Открыть", article_path(article) %> |
 		<%= link_to "Изменить", edit_article_path(article) %> |
-		<%= button_to "Удалить", article_path(article), method: :delete %>		
+		<%= button_to "Удалить", article_path(article), method: :delete, data: { turbo_confirm: "Вы действительно хотите удалить статью?" } %>		
 	</p>
 <hr/>
 <% end %>
