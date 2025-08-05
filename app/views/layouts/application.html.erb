@@ -24,6 +24,9 @@
 
   <body>
 
+    <a href="/users/sign_in">Войти</a>
+    <%= button_to "Выйти", destroy_user_session_path, method: :delete %>
+
            <p class="notice"><%= notice %></p>                                                                                                                                                                     
            <p class="alert"><%= alert %></p> 
 
