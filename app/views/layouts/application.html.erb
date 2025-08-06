@@ -19,9 +19,24 @@
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "turbo", type: "module" %>
   </head>
 
   <body>
+
+  <% if user_signed_in? %>
+
+    <%= current_user.username %> <br> <br><%= button_to "Выйти", destroy_user_session_path, method: :delete %>
+
+  <% else %>
+
+    <%= button_to 'Войти', new_user_session_path %> 
+
+  <% end %>
+
+           <p class="notice"><%= notice %></p>                                                                                                                                                                     
+           <p class="alert"><%= alert %></p> 
+
     <%= yield %>
   </body>
 </html>
