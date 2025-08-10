@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users
+  
+  root to: "home#index"  
+
   get "home/index"
 
   get 'terms' => 'pages#terms'
@@ -6,7 +10,9 @@ Rails.application.routes.draw do
   get 'about' => 'pages#about'
 
   resource :contacts, only: [:new, :create], path_names: {:new => ''}
-  resources :articles
+  resources :articles do
+    resources :comments
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

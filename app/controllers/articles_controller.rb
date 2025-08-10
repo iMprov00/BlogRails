@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
 
+  before_action :authenticate_user!, :only =>[:new, :create]
+
   def update
     @article = Article.find(params[:id])
 
@@ -37,6 +39,11 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def destroy
+    @article = Article.find(params[:id])  
+    @article.destroy
+    redirect_to articles_path
+  end
 
   private 
 
