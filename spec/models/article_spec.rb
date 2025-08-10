@@ -15,4 +15,14 @@ describe Article do
 
 	end
 
+	describe "#subject" do 
+
+		it "returns the article title" do
+
+			article = create(:article, title: 'Lorem Ipsum')
+
+			expect(article.subject).to eq 'Lorem Ipsum'
+
+		end
+	end
 end
